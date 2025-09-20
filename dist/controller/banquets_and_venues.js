@@ -5,7 +5,6 @@ import { bidSchema } from "../Types/banquet_bid.js";
 const prisma = new PrismaClient();
 export const createBid = async (req, res, next) => {
     try {
-        console.log(req.body);
         const validatedData = bidSchema.parse(req.body);
         const bidData = {
             ...validatedData,

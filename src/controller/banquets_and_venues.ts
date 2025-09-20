@@ -12,7 +12,7 @@ export const createBid = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    console.log(req.body);
+    
     const validatedData = bidSchema.parse(req.body);
 
     
@@ -31,7 +31,7 @@ export const createBid = async (
       message: "Bid created successfully",
       data: newBid,
     });
-  } catch (error) {
+  } catch (error:Error|any) {
     if (error instanceof z.ZodError) {
       const errorMessages = error.issues.map((err: any) => ({
         field: err.path.join("."),
