@@ -13,3 +13,18 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Banquet_Bid {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  EventType String
+  Country String
+  State String
+  City String
+  Dates DateTime[]
+  AdultCount Int
+  CateringPreference String
+  Cuisine String
+  BudgetAmount Int
+  AmountCurrency String
+  OffersWithin String
+}

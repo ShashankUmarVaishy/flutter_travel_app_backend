@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import type  { Request, Response } from "express";
+import { createBid } from "./controller/banquets_and_venues.js";
+import { errorHandler } from "./middleware/error-handler.js";
 
 dotenv.config();
 
@@ -16,7 +18,11 @@ app.get("/", (req: Request, res: Response): void => {
   res.send("This is s_squad_mini_project Server!");
 });
 
-app.post("/api/v1/banq_and_ven/bid");
+
+app.post("/api/v1/banq_and_ven/bid", createBid);
+
+// Error handling middleware (must be last)
+app.use(errorHandler);
 
 app.listen(port, (): void => {
   console.log(`S_Squad_mini_project server is running on port ${port}`);
