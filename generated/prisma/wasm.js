@@ -136,6 +136,14 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "windows"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -162,8 +170,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Banquet_Bid {\n  id                 String     @id @default(auto()) @map(\"_id\") @db.ObjectId\n  EventType          String\n  Country            String\n  State              String\n  City               String\n  Dates              DateTime[]\n  AdultCount         Int\n  CateringPreference String\n  Cuisine            String\n  BudgetAmount       Int\n  AmountCurrency     String\n  OffersWithin       String\n}\n",
-  "inlineSchemaHash": "d1c46be3675d638763981e87057bcc133713dbee722db613fffd98af5f4412c6",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"windows\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Banquet_Bid {\n  id                 String     @id @default(auto()) @map(\"_id\") @db.ObjectId\n  EventType          String\n  Country            String\n  State              String\n  City               String\n  Dates              DateTime[]\n  AdultCount         Int\n  CateringPreference String\n  Cuisine            String\n  BudgetAmount       Int\n  AmountCurrency     String\n  OffersWithin       String\n}\n",
+  "inlineSchemaHash": "746577b19ff4f82f41f35a715c1b512e120744c488a7559295006b76c7410c20",
   "copyEngine": true
 }
 config.dirname = '/'
