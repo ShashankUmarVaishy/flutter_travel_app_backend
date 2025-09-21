@@ -18,10 +18,9 @@ app.get("/", (req: Request, res: Response): void => {
   res.send("This is s_squad_mini_project Server!");
 });
 
-
+// only one route that's why like this else would have used  routes directory
 app.post("/api/v1/banq_and_ven/bid", createBid);
 
-// Error handling middleware (must be last)
 app.use(errorHandler);
 
 app.listen(port, (): void => {
